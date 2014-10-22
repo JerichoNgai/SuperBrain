@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-53684223-1', 'auto');
+    ga('require', 'displayfeatures');
+    ga('require', 'linkid', 'linkid.js');
+    ga('send', 'pageview');
+
+</script>
+<meta charset="UTF-8">
+<title>最強大腦﹣暴走小遊戲</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="description" content="暴走微遊戲是港澳臺最大的手機小遊戲專業網站,免費為你提供小遊戲大全,看你有多色,打企鵝,最強大腦,最強眼力,測試遊戲,益智遊戲,腦力遊戲,情侶遊戲，休閒遊戲,等最新手機遊戲。" />
+<meta name="keywords" content="小遊戲,微遊戲,手機遊戲,最強大腦" />
+<meta property="og:url" content="http://game.ioxapp.com/memtest/" />
+<meta property="og:title" content="最強大腦" />
+<meta property="og:description" content="憑記憶力依次點擊數字!" />
+<meta property="og:image" content="http://game.ioxapp.com/memtest/icon.jpg" />
+<link rel="stylesheet" href="css/m.css">
+<script src="js/easeljs.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script type="text/javascript"]]]]>
+    document.ontouchmove = function(e) {e.preventDefault()};
+</script>
+</head>
+<body>
+<div class="grid">
+    <div id="index" class="page show">
+        <h1>最強大腦<br>Memory Test</h1>
+        <div id="help">憑記憶力從小到大，依次點擊數字<br>Click the numbers by ascending with memory</div>
+        <div class="btns">
+            <button id="play-btn" data-type="color" class="btn play-btn">PLAY</button>
+        </div>
+    </div>
+    <div id="room" class="page hide">
+        <header>
+            <span id="lv" class="score">SCORE:0</span>
+        </header>
+        <div id="box" class="lv1">
+            <div style="display:inline-block;height:282px;width:100%;padding:0;position:absolute;top:50%;left:0;margin-top:-141px;">
+                <div style="position:relative;width:282px;margin:0 auto;">
+                    <canvas id="gameCanvas" width="282" height="282" style="background: #a5bfe4;">
+                        当前浏览器不支持webgl
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page hide" id="dialog">
+        <div class="inner">
+            <div class="content share">
+                <p id="game-result">
+                    經鑒定，您是：菜鸟
+                </p>
+                <h3></h3>
+                <div class="btn-wrap">
+                    <a id="btn-share" class="btn btn-ioxapp" href="#">Rate</a>
+                    <button id="btn-restart" class="btn btn-restart">
+                        Play Again
+                    </button>
+                    <a href="itms-apps://itunes.apple.com/artist/appmosys/id898185915" class="btn btn-ioxapp" target="_blank">More Games</a>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/game.js"></script>
+</body>
+</html>
