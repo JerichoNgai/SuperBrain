@@ -6247,9 +6247,25 @@ __extends = this.__extends || function(b, e) {
                     a = b.Browser.getInstance().$new("canvas");
                 a.id = "egretCanvas";
                 a.width = b.MainContext.instance.stage.stageWidth;
-                a.height = b.MainContext.instance.stage.stageHeight;
+                a.height = b.MainContext.instance.stage.stageHeight; // by michael
                 a.style.width = c.style.width;
-                a.style.height = c.style.height;
+                // a.style.height = c.style.height;
+
+                // by michael
+                var ua = navigator.userAgent;
+                var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+                ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/),
+                iphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+                android = ua.match(/(Android);?[\s\/]+([\d.]+)?/),
+                wp = ua.match(/Windows Phone ([\d.]+)/),
+                tablet = ua.match(/Tablet/),
+                touch = ua.match(/Touch/),
+                mobile = ua.match(/Mobile/),
+                phone = ua.match(/Phone/);
+                var is_mobile = ipad || ipod || iphone || android || wp || tablet || touch || mobile || phone;
+                var big_ad = document.body.clientWidth > 468;
+                a.style.height = (new Number(c.style.height.slice(0, -2)) - (is_mobile && !big_ad ? 50 : 90)) + "px"; // by michael
+
                 c.appendChild(a)
             }
             return a
@@ -6580,9 +6596,25 @@ __extends = this.__extends || function(b, e) {
                     a = b.Browser.getInstance().$new("canvas");
                 a.id = "egretCanvas";
                 a.width = b.MainContext.instance.stage.stageWidth;
-                a.height = b.MainContext.instance.stage.stageHeight;
+                a.height = b.MainContext.instance.stage.stageHeight; // by michael
                 a.style.width = c.style.width;
-                a.style.height = c.style.height;
+                // a.style.height = c.style.height;
+
+                // by michael
+                var ua = navigator.userAgent;
+                var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+                ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/),
+                iphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+                android = ua.match(/(Android);?[\s\/]+([\d.]+)?/),
+                wp = ua.match(/Windows Phone ([\d.]+)/),
+                tablet = ua.match(/Tablet/),
+                touch = ua.match(/Touch/),
+                mobile = ua.match(/Mobile/),
+                phone = ua.match(/Phone/);
+                var is_mobile = ipad || ipod || iphone || android || wp || tablet || touch || mobile || phone;
+                var big_ad = document.body.clientWidth > 468;
+                a.style.height = (new Number(c.style.height.slice(0, -2)) - (is_mobile && !big_ad ? 50 : 90)) + "px"; // by michael
+
                 c.appendChild(a)
             }
             return a
@@ -7752,10 +7784,27 @@ var RetangleArea = function() {
             this.height = a;
             this.target = d;
             this.x = e;
-            this.y = l;
+
+            // by michael
+            var ua = navigator.userAgent;
+            var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+            ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/),
+            iphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+            android = ua.match(/(Android);?[\s\/]+([\d.]+)?/),
+            wp = ua.match(/Windows Phone ([\d.]+)/),
+            tablet = ua.match(/Tablet/),
+            touch = ua.match(/Touch/),
+            mobile = ua.match(/Mobile/),
+            phone = ua.match(/Phone/);
+            var is_mobile = ipad || ipod || iphone || android || wp || tablet || touch || mobile || phone;
+            var big_ad = document.body.clientWidth > 468;
+            var delta1 = is_mobile && !big_ad ? 50 : 90; // by michael
+
+            this.y = l - delta1; // by michael
             this.touchTips = this._createBitmapByName("icon_touch_here");
             this.touchTips.x = (c - this.touchTips.width) / 2;
-            this.touchTips.y = (a - this.touchTips.height) / 2;
+            this.touchTips.y = (a - this.touchTips.height) / 2 + delta1; // by michael
+            // alert("h="+this.height+",y="+this.y+",touchY="+this.touchTips.y);
             this.addChild(this.touchTips);
             this.addEventListener(egret.Event.ADDED_TO_STAGE, this.__onAddToStage, this)
         }
