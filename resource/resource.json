@@ -1,0 +1,17 @@
+{
+"resources":
+	[
+	  {"name":"bgImage","type":"image","url":"assets/bg.png"},
+	  {"name":"avatar_normal", "type":"image","url":"assets/avatar_normal.png"},
+	  {"name":"avatar_hit", "type":"image","url":"assets/avatar_hit.png"},
+	  {"name":"icon_coin", "type":"image","url":"assets/icon_coin.png"},
+	  {"name":"icon_normal", "type":"image","url":"assets/icon_normal.png"},
+	  {"name":"icon_hit", "type":"image","url":"assets/icon_hit.png"},
+	  {"name":"icon_touch_here", "type":"image","url":"assets/icon_touch_here.png"}
+	],
+
+"groups":
+	[
+        {"name":"preload","keys":"bgImage,avatar_normal,avatar_hit,icon_coin,icon_normal,icon_hit,icon_touch_here"}
+	]
+}
