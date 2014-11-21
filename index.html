@@ -1,221 +1,2090 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>最強大腦﹣暴走小遊戲</title>
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
-<meta name="description" content="暴走微遊戲是港澳臺最大的手機小遊戲專業網站,免費為你提供小遊戲大全,看你有多色,打企鵝,最強大腦,最強眼力,測試遊戲,益智遊戲,腦力遊戲,情侶遊戲，休閒遊戲,等最新手機遊戲。" />
-<meta name="keywords" content="小遊戲,微遊戲,手機遊戲,最強大腦" />
-<!-- <meta property="og:url" content="http://game.ioxapp.com/memtest/" /> -->
-<meta property="og:title" content="最強大腦" />
-<meta property="og:description" content="憑記憶力依次點擊數字!" />
-<!-- <meta property="og:image" content="http://game.ioxapp.com/memtest/icon.jpg" /> -->
-<link rel="stylesheet" href="css/m.css">
-<script src="js/easeljs.min.js"></script>
-<script src="js/zepto.min.js"></script>
-<script type="text/javascript"]]]]>
-    document.ontouchmove = function(e) {e.preventDefault()};
-</script>
-<style>
-    .adcontainer {
-        display: none;
-        padding: 0;
-        margin: 0;
-        bottom: 0;
-        left: 0;
-    }
-    /* Default Stylesheet */
-    #responsive-adsense {
-        display: none;
-        padding: 0;
-        margin: 0;
-        bottom: 0;
-        left: 0;
-    }
-    /*
-     GENERAL MEDIA QUERY FOR SMALL SCREEN SIZES - COVERS COMMON MOBILE DEVICES, PHONES/TABLETS...
-     */
-    @media only screen and (max-width: 1023px) {
-        .adcontainer {
-            display: none;
-        }
-        #responsive-adsense{
-            display: none;
-        }
-    }
-    @media only screen and (max-width: 899px) {
-        .adcontainer {
-            width: 100%;
-            height: auto;
-            position: fixed;
-            bottom: 0px;
-            display: block;
-            background: #e74c3c;
-            color: #fff;
-            margin: 0 auto;
-            padding: 0; /* 5px; */
-        }
-        #responsive-adsense {
-            width: 728px !important;
-            display: block !important;
-        }
-    }
-    @media only screen and (max-width: 767px) {    
-        .adcontainer {
-            width: 100%;
-            height: auto;
-            position: fixed;
-            bottom: 0px;
-            display: block;
-            background: #e74c3c;
-            color: #fff;
-            margin: 0 auto;
-            padding: 0; /* 5px; */
-        }
-        #responsive-adsense {
-            width: 728px !important;
-            display: block !important;
-        }
-    }
-    @media only screen and (max-width: 599px) {
-        .adcontainer {
-            width: 100%;
-            height: 60px;
-            position: fixed;
-            bottom: 0px;
-            display: block;
-            background: #e74c3c;
-            color: #fff;
+    <meta charset="utf-8">
+    <title>百元哥来找你要钱啦</title>
+    <!--  <meta name="viewport"
+        content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=device-dpi"/>
+   -->
+    <meta name="viewport" content="width=320.1, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <!--  <script type="text/javascript" src="http://mat1.gtimg.com/weishi/player/weishiplayer.min.js"></script>  decamincow-->
+    <style>
+        body {
+            text-align: center;
+            background: #072839;
+            padding: 0;
+            border: 0;
             margin: 0;
-            padding: 0px; /* 5px; */
+            height: 100%;
+            width：100%;
+            font: 16px/1.5 "黑体", "Helvetica Neue", Helvetica, STHeiTi, sans-serif
         }
-        #responsive-adsense {
-            width: 468px !important;
-            display: block !important;
-            height: 60px;
-            bottom: 0;
+        html {
+            -ms-touch-action: none;
+            overflow: hidden
         }
-    }
-    @media only screen and (max-width: 467px) {
-        .adcontainer {
-            width: 100%;
-            height: 50px;
-            position: fixed;
-            bottom: 0px;
+        div,
+        canvas {
             display: block;
-            background: #e74c3c;
-            color: #fff;
+            position: absolute;
             margin: 0 auto;
-            padding: 0px; /* 5px; */
+            padding: 0;
+            border: 0
         }
-        #responsive-adsense {
-            width: 320px !important;
-            display: block !important;
-        } 
-    }
-    /* Here's the css for mobile devices */  
-    @media only screen and (max-width: 320px) {
-        .adcontainer {
-            width: auto !important; 
-            padding: 0px !important;
-            height: 50px !important; 
+        #vbox {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin: auto
         }
-        #responsive-adsense {
-            width: 320px !important;
-            height: 50px !important;
-            display: block !important; 
+        #startPage {
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+            position: absolute;
+            width: 100%;
+            z-index: 99;
+            background: url(http://mat1.gtimg.com/www/mb/webapp/weishi/image/game/bg.png)
         }
-    }
-</style>
+        #startPage h1 {
+            font-size: 40px;
+            color: #d4d4d4
+        }
+        #startPage p {
+            width: 100%;
+            margin: 10px auto;
+            text-align: center;
+            line-height: 25px;
+            font-weight: 700;
+            color: #d4d4d4
+        }
+        #startPage p span {
+            font-size: 30px
+        }
+        #endPage {
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+            position: absolute;
+            z-index: 999;
+            display: none;
+            background: #06212f;
+            background-size: 100%
+        }
+        #startPage div,
+        .endPage div {
+            position: initial
+        }
+        #endPage .shareBg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 26px;
+            line-height: 1.7em;
+            background: rgba(0, 0, 0, .85)
+        }
+        #endPage .shareBg .arron {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 100px;
+            height: 100px;
+            background: url(http://mat1.gtimg.com/www/mb/webapp/weishi/image/arron.png) no-repeat;
+            background-size: 100px 100px
+        }
+        .shareBg p {
+            padding-top: 78px
+        }
+        #endPage a {
+            text-decoration: none
+        }
+        #endPage .info {
+            color: #fff
+        }
+        #endPage .moneyinfo {
+            width: 250px;
+            height: 110px
+        }
+        #endPage .info .avator {
+            float: left;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            margin-right: 20px
+        }
+        #endPage .info img {
+            width: 100px;
+            height: 100px
+        }
+        #endPage .info .moneybox {
+            float: left;
+            width: 100px;
+            height: 100px
+        }
+        #endPage .precentbox {
+            width: 100%;
+            height: 80px;
+            float: none
+        }
+        #endPage .precentbox span {
+            font-size: 35px;
+            color: #fff18f
+        }
+        #endPage .info .moneybox span {
+            font-size: 50px;
+            color: #f84600
+        }
+        .shareBox p {
+            float: left;
+            margin-left: 20px
+        }
+        .shareBox ul li {
+            float: left;
+            list-style: none;
+            width: 12%;
+            height: 40px;
+            line-height: 40px;
+            border: 0
+        }
+        .shareBox ul li a {
+            width: 100%;
+            display: block;
+            height: 100%
+        }
+        .shareBox ul li:first-child {
+            width: 100px
+        }
+        .shareBox .ico {
+            display: block;
+            margin: 8px 0 0 8px;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            font-size: 16px;
+            background: url(http://mat1.gtimg.com/www/mb/images/weishi/Sub/sprite/asyn.base-131226c.png);
+            background-size: 155px
+        }
+        .shareBox .icon-qq {
+            background-position: -27px 0
+        }
+        .shareBox .icon-qz {
+            background-position: -52px 0
+        }
+        .shareBox .icon-sina {
+            background-position: -77px 0
+        }
+        .btnBox {
+            width: 280px;
+            height: 38px;
+            margin: auto
+        }
+        .replayBtn,
+        .sharewxBtn {
+            float: left;
+            display: block;
+            width: 120px;
+            height: 38px;
+            line-height: 38px;
+            margin-left: 40px
+        }
+        .replayBtn {
+            margin-left: 0
+        }
+        .btn {
+            font-size: 16px;
+            color: #fff;
+            background-color: #09415d;
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
+            font-weight: 700
+        }
+        .relatedNews {
+            width: 280px;
+            margin: auto
+        }
+        .relatedNews .rn_imgArea {
+            position: relative;
+            margin: 20px 0 15px;
+            display: block;
+            background-color: #fff;
+            border-bottom: 1px solid #ded9d5;
+            border-radius: 3px
+        }
+        .relatedNews .rn_imgArea:after {
+            content: "";
+            position: relative;
+            margin: 0 auto;
+            bottom: -7px;
+            display: block;
+            height: 10px;
+            width: 10px;
+            background-color: #fff;
+            border-bottom: 1px solid #ded9d5;
+            border-right: 1px solid #ded9d5;
+            transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg)
+        }
+        .relatedNews .rn_imgArea img {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: block;
+            width: 75px;
+            height: 60px
+        }
+        .relatedNews a.unified_downloader {
+            height: 44px;
+            text-align: center;
+            position: relative;
+            display: block;
+            border-radius: 3px
+        }
+        .relatedNews .downloader_download {
+            background-color: #8cc13f
+        }
+        .relatedNews a.unified_downloader .downloader_text {
+            position: relative;
+            display: inline-block;
+            font-size: 15px;
+            height: 44px;
+            line-height: 44px;
+            color: #fff;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap
+        }
+        .relatedNews .downloader_download .downloader_text {
+            padding-left: 25px;
+            background: url(http://mat1.gtimg.com/www/images/newsapp/wechat/new_download_icon_white.png) no-repeat left center;
+            background-size: 17px 16px
+        }
+        .relatedNews .rn_des span.rn_text {
+            text-align: justify;
+            display: inline;
+            line-height: 23px
+        }
+        .relatedNews .rn_des {
+            position: relative;
+            margin: 0 10px 0 95px;
+            padding: 10px 0;
+            min-height: 50px;
+            display: block;
+            color: #090909;
+            font-size: 16px;
+            text-align: left
+        }
+        .relatedNews .rn_des p {
+            margin: 0;
+            width: 100%
+        }
+        .relatedNews {
+            padding: 10px
+        }
+        .relatedNews .downloadBtn {
+            display: block
+        }
+        #startPage .playBtn {
+            display: block;
+            text-decoration: none;
+            width: 240px;
+            height: 55px;
+            line-height: 55px;
+            margin: 25px auto;
+            background-color: #be3d8f
+        }
+        #startPage .playBtn {
+            font-size: 20px
+        }
+        #startPage .playBtn span {
+            font-size: 16px
+        }
+        #gameDiv {
+            display: none
+        }
+        .atlas {
+            width: 100%
+        }
+        .atlas a.unified_downloader {
+            height: 38px;
+            text-align: center;
+            position: relative;
+            display: block;
+            border: 1px solid #dedada;
+            border-top: 0
+        }
+        .atlas a.unified_downloader .downloader_text {
+            position: relative;
+            display: inline-block;
+            font-size: 15px;
+            height: 38px;
+            line-height: 38px;
+            color: #4780e5;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap
+        }
+        .atlas .downloader_download .downloader_text {
+            padding-left: 25px;
+            background: url(http://mat1.gtimg.com/www/images/newsapp/wechat/new_download_icon.png) no-repeat left center;
+            background-size: 17px 16px
+        }
+        #vbox {
+            display: none
+        }
+        #startPage .vWrap {
+            width: 280px;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+            margin: auto
+        }
+        .vWrap img {
+            width: 280px;
+            height: 280px
+        }
+        .btnPlay {
+            width: 60px;
+            height: 60px;
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -30px 0 0 -30px;
+            cursor: pointer;
+            background: url(http://mat1.gtimg.com/www/mb/images/weishi/btn_play_new140314.8a.png) no-repeat;
+            background-size: 151%
+        }
+        #startPage .container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            padding-top: 20px
+        }
+        #endPage .container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            padding-top: 30px
+        }
+        #startPage .container .avator {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 10px;
+            float: left
+        }
+        #startPage .container .avator img {
+            width: 70px;
+            height: 70px
+        }
+        #startPage .info {
+            width: 180px;
+            float: left;
+            height: 70px;
+            line-height: 30px;
+            color: #d4d4d4;
+            text-align: left
+        }
+        #startPage .infobox {
+            float: none;
+            width: 250px;
+            margin: auto;
+            height: 70px
+        }
+        #startPage .mvDownload {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 38px;
+            background: rgba(0, 0, 0, .5);
+            padding: 5px 0;
+            color: #fff;
+            text-align: left;
+            font: 16px/1.5 "Helvetica Neue", Helvetica, STHeiTi, sans-serif
+        }
+        #startPage .mvDownload img {
+            width: 36px;
+            height: 36px;
+            display: block;
+            border-radius: 5px;
+            margin: 0 10px;
+            float: left
+        }
+        #startPage .mvDownload h3 {
+            height: 22px;
+            line-height: 22px;
+            margin: 0;
+            font-size: 100%;
+            font-weight: weight
+        }
+        #startPage .mvDownload p {
+            font-size: .75em;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            line-height: 18px
+        }
+        #startPage .mvDownload a.downloadBtn {
+            display: block;
+            background: #01ACB9;
+            position: absolute;
+            right: 10px;
+            bottom: 5px;
+            width: 72px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            color: #fff;
+            border-radius: 3px;
+            text-decoration: none
+        }
+    </style>
+    <script>
+        var Zepto = function() {
+            function a(a) {
+                return null == a ? String(a) : U[V.call(a)] || "object"
+            }
+
+            function b(b) {
+                return "function" == a(b)
+            }
+
+            function c(a) {
+                return null != a && a == a.window
+            }
+
+            function d(a) {
+                return null != a && a.nodeType == a.DOCUMENT_NODE
+            }
+
+            function e(b) {
+                return "object" == a(b)
+            }
+
+            function f(a) {
+                return e(a) && !c(a) && Object.getPrototypeOf(a) == Object.prototype
+            }
+
+            function g(a) {
+                return "number" == typeof a.length
+            }
+
+            function h(a) {
+                return D.call(a, function(a) {
+                    return null != a
+                })
+            }
+
+            function i(a) {
+                return a.length > 0 ? x.fn.concat.apply([], a) : a
+            }
+
+            function j(a) {
+                return a.replace(/::/g, "/").replace(/([A-Z]+)([A-Z][a-z])/g, "$1_$2").replace(/([a-z\d])([A-Z])/g, "$1_$2").replace(/_/g, "-").toLowerCase()
+            }
+
+            function k(a) {
+                return a in G ? G[a] : G[a] = new RegExp("(^|\\s)" + a + "(\\s|$)")
+            }
+
+            function l(a, b) {
+                return "number" != typeof b || H[j(a)] ? b : b + "px"
+            }
+
+            function m(a) {
+                var b, c;
+                return F[a] || (b = E.createElement(a), E.body.appendChild(b), c = getComputedStyle(b, "").getPropertyValue("display"), b.parentNode.removeChild(b), "none" == c && (c = "block"), F[a] = c), F[a]
+            }
+
+            function n(a) {
+                return "children" in a ? C.call(a.children) : x.map(a.childNodes, function(a) {
+                    return 1 == a.nodeType ? a : void 0
+                })
+            }
+
+            function o(a, b, c) {
+                for (w in b) c && (f(b[w]) || Z(b[w])) ? (f(b[w]) && !f(a[w]) && (a[w] = {}), Z(b[w]) && !Z(a[w]) && (a[w] = []), o(a[w], b[w], c)) : b[w] !== v && (a[w] = b[w])
+            }
+
+            function p(a, b) {
+                return null == b ? x(a) : x(a).filter(b)
+            }
+
+            function q(a, c, d, e) {
+                return b(c) ? c.call(a, d, e) : c
+            }
+
+            function r(a, b, c) {
+                null == c ? a.removeAttribute(b) : a.setAttribute(b, c)
+            }
+
+            function s(a, b) {
+                var c = a.className,
+                    d = c && c.baseVal !== v;
+                return b === v ? d ? c.baseVal : c : void(d ? c.baseVal = b : a.className = b)
+            }
+
+            function t(a) {
+                var b;
+                try {
+                    return a ? "true" == a || ("false" == a ? !1 : "null" == a ? null : /^0/.test(a) || isNaN(b = Number(a)) ? /^[\[\{]/.test(a) ? x.parseJSON(a) : a : b) : a
+                } catch (c) {
+                    return a
+                }
+            }
+
+            function u(a, b) {
+                b(a);
+                for (var c in a.childNodes) u(a.childNodes[c], b)
+            }
+            var v, w, x, y, z, A, B = [],
+                C = B.slice,
+                D = B.filter,
+                E = window.document,
+                F = {},
+                G = {},
+                H = {
+                    "column-count": 1,
+                    columns: 1,
+                    "font-weight": 1,
+                    "line-height": 1,
+                    opacity: 1,
+                    "z-index": 1,
+                    zoom: 1
+                },
+                I = /^\s*<(\w+|!)[^>]*>/,
+                J = /^<(\w+)\s*\/?>(?:<\/\1>|)$/,
+                K = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/gi,
+                L = /^(?:body|html)$/i,
+                M = /([A-Z])/g,
+                N = ["val", "css", "html", "text", "data", "width", "height", "offset"],
+                O = ["after", "prepend", "before", "append"],
+                P = E.createElement("table"),
+                Q = E.createElement("tr"),
+                R = {
+                    tr: E.createElement("tbody"),
+                    tbody: P,
+                    thead: P,
+                    tfoot: P,
+                    td: Q,
+                    th: Q,
+                    "*": E.createElement("div")
+                },
+                S = /complete|loaded|interactive/,
+                T = /^[\w-]*$/,
+                U = {},
+                V = U.toString,
+                W = {},
+                X = E.createElement("div"),
+                Y = {
+                    tabindex: "tabIndex",
+                    readonly: "readOnly",
+                    "for": "htmlFor",
+                    "class": "className",
+                    maxlength: "maxLength",
+                    cellspacing: "cellSpacing",
+                    cellpadding: "cellPadding",
+                    rowspan: "rowSpan",
+                    colspan: "colSpan",
+                    usemap: "useMap",
+                    frameborder: "frameBorder",
+                    contenteditable: "contentEditable"
+                },
+                Z = Array.isArray || function(a) {
+                    return a instanceof Array
+                };
+            return W.matches = function(a, b) {
+                if (!b || !a || 1 !== a.nodeType) return !1;
+                var c = a.webkitMatchesSelector || a.mozMatchesSelector || a.oMatchesSelector || a.matchesSelector;
+                if (c) return c.call(a, b);
+                var d, e = a.parentNode,
+                    f = !e;
+                return f && (e = X).appendChild(a), d = ~W.qsa(e, b).indexOf(a), f && X.removeChild(a), d
+            }, z = function(a) {
+                return a.replace(/-+(.)?/g, function(a, b) {
+                    return b ? b.toUpperCase() : ""
+                })
+            }, A = function(a) {
+                return D.call(a, function(b, c) {
+                    return a.indexOf(b) == c
+                })
+            }, W.fragment = function(a, b, c) {
+                var d, e, g;
+                return J.test(a) && (d = x(E.createElement(RegExp.$1))), d || (a.replace && (a = a.replace(K, "<$1></$2>")), b === v && (b = I.test(a) && RegExp.$1), b in R || (b = "*"), g = R[b], g.innerHTML = "" + a, d = x.each(C.call(g.childNodes), function() {
+                    g.removeChild(this)
+                })), f(c) && (e = x(d), x.each(c, function(a, b) {
+                    N.indexOf(a) > -1 ? e[a](b) : e.attr(a, b)
+                })), d
+            }, W.Z = function(a, b) {
+                return a = a || [], a.__proto__ = x.fn, a.selector = b || "", a
+            }, W.isZ = function(a) {
+                return a instanceof W.Z
+            }, W.init = function(a, c) {
+                var d;
+                if (!a) return W.Z();
+                if ("string" == typeof a)
+                    if (a = a.trim(), "<" == a[0] && I.test(a)) d = W.fragment(a, RegExp.$1, c), a = null;
+                    else {
+                        if (c !== v) return x(c).find(a);
+                        d = W.qsa(E, a)
+                    } else {
+                    if (b(a)) return x(E).ready(a);
+                    if (W.isZ(a)) return a;
+                    if (Z(a)) d = h(a);
+                    else if (e(a)) d = [a], a = null;
+                    else if (I.test(a)) d = W.fragment(a.trim(), RegExp.$1, c), a = null;
+                    else {
+                        if (c !== v) return x(c).find(a);
+                        d = W.qsa(E, a)
+                    }
+                }
+                return W.Z(d, a)
+            }, x = function(a, b) {
+                return W.init(a, b)
+            }, x.extend = function(a) {
+                var b, c = C.call(arguments, 1);
+                return "boolean" == typeof a && (b = a, a = c.shift()), c.forEach(function(c) {
+                    o(a, c, b)
+                }), a
+            }, W.qsa = function(a, b) {
+                var c, e = "#" == b[0],
+                    f = !e && "." == b[0],
+                    g = e || f ? b.slice(1) : b,
+                    h = T.test(g);
+                return d(a) && h && e ? (c = a.getElementById(g)) ? [c] : [] : 1 !== a.nodeType && 9 !== a.nodeType ? [] : C.call(h && !e ? f ? a.getElementsByClassName(g) : a.getElementsByTagName(b) : a.querySelectorAll(b))
+            }, x.contains = function(a, b) {
+                return a !== b && a.contains(b)
+            }, x.type = a, x.isFunction = b, x.isWindow = c, x.isArray = Z, x.isPlainObject = f, x.isEmptyObject = function(a) {
+                var b;
+                for (b in a) return !1;
+                return !0
+            }, x.inArray = function(a, b, c) {
+                return B.indexOf.call(b, a, c)
+            }, x.camelCase = z, x.trim = function(a) {
+                return null == a ? "" : String.prototype.trim.call(a)
+            }, x.uuid = 0, x.support = {}, x.expr = {}, x.map = function(a, b) {
+                var c, d, e, f = [];
+                if (g(a))
+                    for (d = 0; d < a.length; d++) c = b(a[d], d), null != c && f.push(c);
+                else
+                    for (e in a) c = b(a[e], e), null != c && f.push(c);
+                return i(f)
+            }, x.each = function(a, b) {
+                var c, d;
+                if (g(a)) {
+                    for (c = 0; c < a.length; c++)
+                        if (b.call(a[c], c, a[c]) === !1) return a
+                } else
+                    for (d in a)
+                        if (b.call(a[d], d, a[d]) === !1) return a; return a
+            }, x.grep = function(a, b) {
+                return D.call(a, b)
+            }, window.JSON && (x.parseJSON = JSON.parse), x.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(a, b) {
+                U["[object " + b + "]"] = b.toLowerCase()
+            }), x.fn = {
+                forEach: B.forEach,
+                reduce: B.reduce,
+                push: B.push,
+                sort: B.sort,
+                indexOf: B.indexOf,
+                concat: B.concat,
+                map: function(a) {
+                    return x(x.map(this, function(b, c) {
+                        return a.call(b, c, b)
+                    }))
+                },
+                slice: function() {
+                    return x(C.apply(this, arguments))
+                },
+                ready: function(a) {
+                    return S.test(E.readyState) && E.body ? a(x) : E.addEventListener("DOMContentLoaded", function() {
+                        a(x)
+                    }, !1), this
+                },
+                get: function(a) {
+                    return a === v ? C.call(this) : this[a >= 0 ? a : a + this.length]
+                },
+                toArray: function() {
+                    return this.get()
+                },
+                size: function() {
+                    return this.length
+                },
+                remove: function() {
+                    return this.each(function() {
+                        null != this.parentNode && this.parentNode.removeChild(this)
+                    })
+                },
+                each: function(a) {
+                    return B.every.call(this, function(b, c) {
+                        return a.call(b, c, b) !== !1
+                    }), this
+                },
+                filter: function(a) {
+                    return b(a) ? this.not(this.not(a)) : x(D.call(this, function(b) {
+                        return W.matches(b, a)
+                    }))
+                },
+                add: function(a, b) {
+                    return x(A(this.concat(x(a, b))))
+                },
+                is: function(a) {
+                    return this.length > 0 && W.matches(this[0], a)
+                },
+                not: function(a) {
+                    var c = [];
+                    if (b(a) && a.call !== v) this.each(function(b) {
+                        a.call(this, b) || c.push(this)
+                    });
+                    else {
+                        var d = "string" == typeof a ? this.filter(a) : g(a) && b(a.item) ? C.call(a) : x(a);
+                        this.forEach(function(a) {
+                            d.indexOf(a) < 0 && c.push(a)
+                        })
+                    }
+                    return x(c)
+                },
+                has: function(a) {
+                    return this.filter(function() {
+                        return e(a) ? x.contains(this, a) : x(this).find(a).size()
+                    })
+                },
+                eq: function(a) {
+                    return -1 === a ? this.slice(a) : this.slice(a, +a + 1)
+                },
+                first: function() {
+                    var a = this[0];
+                    return a && !e(a) ? a : x(a)
+                },
+                last: function() {
+                    var a = this[this.length - 1];
+                    return a && !e(a) ? a : x(a)
+                },
+                find: function(a) {
+                    var b, c = this;
+                    return b = "object" == typeof a ? x(a).filter(function() {
+                        var a = this;
+                        return B.some.call(c, function(b) {
+                            return x.contains(b, a)
+                        })
+                    }) : 1 == this.length ? x(W.qsa(this[0], a)) : this.map(function() {
+                        return W.qsa(this, a)
+                    })
+                },
+                closest: function(a, b) {
+                    var c = this[0],
+                        e = !1;
+                    for ("object" == typeof a && (e = x(a)); c && !(e ? e.indexOf(c) >= 0 : W.matches(c, a));) c = c !== b && !d(c) && c.parentNode;
+                    return x(c)
+                },
+                parents: function(a) {
+                    for (var b = [], c = this; c.length > 0;) c = x.map(c, function(a) {
+                        return (a = a.parentNode) && !d(a) && b.indexOf(a) < 0 ? (b.push(a), a) : void 0
+                    });
+                    return p(b, a)
+                },
+                parent: function(a) {
+                    return p(A(this.pluck("parentNode")), a)
+                },
+                children: function(a) {
+                    return p(this.map(function() {
+                        return n(this)
+                    }), a)
+                },
+                contents: function() {
+                    return this.map(function() {
+                        return C.call(this.childNodes)
+                    })
+                },
+                siblings: function(a) {
+                    return p(this.map(function(a, b) {
+                        return D.call(n(b.parentNode), function(a) {
+                            return a !== b
+                        })
+                    }), a)
+                },
+                empty: function() {
+                    return this.each(function() {
+                        this.innerHTML = ""
+                    })
+                },
+                pluck: function(a) {
+                    return x.map(this, function(b) {
+                        return b[a]
+                    })
+                },
+                show: function() {
+                    return this.each(function() {
+                        "none" == this.style.display && (this.style.display = ""), "none" == getComputedStyle(this, "").getPropertyValue("display") && (this.style.display = m(this.nodeName))
+                    })
+                },
+                replaceWith: function(a) {
+                    return this.before(a).remove()
+                },
+                wrap: function(a) {
+                    var c = b(a);
+                    if (this[0] && !c) var d = x(a).get(0),
+                        e = d.parentNode || this.length > 1;
+                    return this.each(function(b) {
+                        x(this).wrapAll(c ? a.call(this, b) : e ? d.cloneNode(!0) : d)
+                    })
+                },
+                wrapAll: function(a) {
+                    if (this[0]) {
+                        x(this[0]).before(a = x(a));
+                        for (var b;
+                            (b = a.children()).length;) a = b.first();
+                        x(a).append(this)
+                    }
+                    return this
+                },
+                wrapInner: function(a) {
+                    var c = b(a);
+                    return this.each(function(b) {
+                        var d = x(this),
+                            e = d.contents(),
+                            f = c ? a.call(this, b) : a;
+                        e.length ? e.wrapAll(f) : d.append(f)
+                    })
+                },
+                unwrap: function() {
+                    return this.parent().each(function() {
+                        x(this).replaceWith(x(this).children())
+                    }), this
+                },
+                clone: function() {
+                    return this.map(function() {
+                        return this.cloneNode(!0)
+                    })
+                },
+                hide: function() {
+                    return this.css("display", "none")
+                },
+                toggle: function(a) {
+                    return this.each(function() {
+                        var b = x(this);
+                        (a === v ? "none" == b.css("display") : a) ? b.show(): b.hide()
+                    })
+                },
+                prev: function(a) {
+                    return x(this.pluck("previousElementSibling")).filter(a || "*")
+                },
+                next: function(a) {
+                    return x(this.pluck("nextElementSibling")).filter(a || "*")
+                },
+                html: function(a) {
+                    return 0 === arguments.length ? this.length > 0 ? this[0].innerHTML : null : this.each(function(b) {
+                        var c = this.innerHTML;
+                        x(this).empty().append(q(this, a, b, c))
+                    })
+                },
+                text: function(a) {
+                    return 0 === arguments.length ? this.length > 0 ? this[0].textContent : null : this.each(function() {
+                        this.textContent = a === v ? "" : "" + a
+                    })
+                },
+                attr: function(a, b) {
+                    var c;
+                    return "string" == typeof a && b === v ? 0 == this.length || 1 !== this[0].nodeType ? v : "value" == a && "INPUT" == this[0].nodeName ? this.val() : !(c = this[0].getAttribute(a)) && a in this[0] ? this[0][a] : c : this.each(function(c) {
+                        if (1 === this.nodeType)
+                            if (e(a))
+                                for (w in a) r(this, w, a[w]);
+                            else r(this, a, q(this, b, c, this.getAttribute(a)))
+                    })
+                },
+                removeAttr: function(a) {
+                    return this.each(function() {
+                        1 === this.nodeType && r(this, a)
+                    })
+                },
+                prop: function(a, b) {
+                    return a = Y[a] || a, b === v ? this[0] && this[0][a] : this.each(function(c) {
+                        this[a] = q(this, b, c, this[a])
+                    })
+                },
+                data: function(a, b) {
+                    var c = this.attr("data-" + a.replace(M, "-$1").toLowerCase(), b);
+                    return null !== c ? t(c) : v
+                },
+                val: function(a) {
+                    return 0 === arguments.length ? this[0] && (this[0].multiple ? x(this[0]).find("option").filter(function() {
+                        return this.selected
+                    }).pluck("value") : this[0].value) : this.each(function(b) {
+                        this.value = q(this, a, b, this.value)
+                    })
+                },
+                offset: function(a) {
+                    if (a) return this.each(function(b) {
+                        var c = x(this),
+                            d = q(this, a, b, c.offset()),
+                            e = c.offsetParent().offset(),
+                            f = {
+                                top: d.top - e.top,
+                                left: d.left - e.left
+                            };
+                        "static" == c.css("position") && (f.position = "relative"), c.css(f)
+                    });
+                    if (0 == this.length) return null;
+                    var b = this[0].getBoundingClientRect();
+                    return {
+                        left: b.left + window.pageXOffset,
+                        top: b.top + window.pageYOffset,
+                        width: Math.round(b.width),
+                        height: Math.round(b.height)
+                    }
+                },
+                css: function(b, c) {
+                    if (arguments.length < 2) {
+                        var d = this[0],
+                            e = getComputedStyle(d, "");
+                        if (!d) return;
+                        if ("string" == typeof b) return d.style[z(b)] || e.getPropertyValue(b);
+                        if (Z(b)) {
+                            var f = {};
+                            return x.each(Z(b) ? b : [b], function(a, b) {
+                                f[b] = d.style[z(b)] || e.getPropertyValue(b)
+                            }), f
+                        }
+                    }
+                    var g = "";
+                    if ("string" == a(b)) c || 0 === c ? g = j(b) + ":" + l(b, c) : this.each(function() {
+                        this.style.removeProperty(j(b))
+                    });
+                    else
+                        for (w in b) b[w] || 0 === b[w] ? g += j(w) + ":" + l(w, b[w]) + ";" : this.each(function() {
+                            this.style.removeProperty(j(w))
+                        });
+                    return this.each(function() {
+                        this.style.cssText += ";" + g
+                    })
+                },
+                index: function(a) {
+                    return a ? this.indexOf(x(a)[0]) : this.parent().children().indexOf(this[0])
+                },
+                hasClass: function(a) {
+                    return a ? B.some.call(this, function(a) {
+                        return this.test(s(a))
+                    }, k(a)) : !1
+                },
+                addClass: function(a) {
+                    return a ? this.each(function(b) {
+                        y = [];
+                        var c = s(this),
+                            d = q(this, a, b, c);
+                        d.split(/\s+/g).forEach(function(a) {
+                            x(this).hasClass(a) || y.push(a)
+                        }, this), y.length && s(this, c + (c ? " " : "") + y.join(" "))
+                    }) : this
+                },
+                removeClass: function(a) {
+                    return this.each(function(b) {
+                        return a === v ? s(this, "") : (y = s(this), q(this, a, b, y).split(/\s+/g).forEach(function(a) {
+                            y = y.replace(k(a), " ")
+                        }), void s(this, y.trim()))
+                    })
+                },
+                toggleClass: function(a, b) {
+                    return a ? this.each(function(c) {
+                        var d = x(this),
+                            e = q(this, a, c, s(this));
+                        e.split(/\s+/g).forEach(function(a) {
+                            (b === v ? !d.hasClass(a) : b) ? d.addClass(a): d.removeClass(a)
+                        })
+                    }) : this
+                },
+                scrollTop: function(a) {
+                    if (this.length) {
+                        var b = "scrollTop" in this[0];
+                        return a === v ? b ? this[0].scrollTop : this[0].pageYOffset : this.each(b ? function() {
+                            this.scrollTop = a
+                        } : function() {
+                            this.scrollTo(this.scrollX, a)
+                        })
+                    }
+                },
+                scrollLeft: function(a) {
+                    if (this.length) {
+                        var b = "scrollLeft" in this[0];
+                        return a === v ? b ? this[0].scrollLeft : this[0].pageXOffset : this.each(b ? function() {
+                            this.scrollLeft = a
+                        } : function() {
+                            this.scrollTo(a, this.scrollY)
+                        })
+                    }
+                },
+                position: function() {
+                    if (this.length) {
+                        var a = this[0],
+                            b = this.offsetParent(),
+                            c = this.offset(),
+                            d = L.test(b[0].nodeName) ? {
+                                top: 0,
+                                left: 0
+                            } : b.offset();
+                        return c.top -= parseFloat(x(a).css("margin-top")) || 0, c.left -= parseFloat(x(a).css("margin-left")) || 0, d.top += parseFloat(x(b[0]).css("border-top-width")) || 0, d.left += parseFloat(x(b[0]).css("border-left-width")) || 0, {
+                            top: c.top - d.top,
+                            left: c.left - d.left
+                        }
+                    }
+                },
+                offsetParent: function() {
+                    return this.map(function() {
+                        for (var a = this.offsetParent || E.body; a && !L.test(a.nodeName) && "static" == x(a).css("position");) a = a.offsetParent;
+                        return a
+                    })
+                }
+            }, x.fn.detach = x.fn.remove, ["width", "height"].forEach(function(a) {
+                var b = a.replace(/./, function(a) {
+                    return a[0].toUpperCase()
+                });
+                x.fn[a] = function(e) {
+                    var f, g = this[0];
+                    return e === v ? c(g) ? g["inner" + b] : d(g) ? g.documentElement["scroll" + b] : (f = this.offset()) && f[a] : this.each(function(b) {
+                        g = x(this), g.css(a, q(this, e, b, g[a]()))
+                    })
+                }
+            }), O.forEach(function(b, c) {
+                var d = c % 2;
+                x.fn[b] = function() {
+                    var b, e, f = x.map(arguments, function(c) {
+                            return b = a(c), "object" == b || "array" == b || null == c ? c : W.fragment(c)
+                        }),
+                        g = this.length > 1;
+                    return f.length < 1 ? this : this.each(function(a, b) {
+                        e = d ? b : b.parentNode, b = 0 == c ? b.nextSibling : 1 == c ? b.firstChild : 2 == c ? b : null, f.forEach(function(a) {
+                            if (g) a = a.cloneNode(!0);
+                            else if (!e) return x(a).remove();
+                            u(e.insertBefore(a, b), function(a) {
+                                null == a.nodeName || "SCRIPT" !== a.nodeName.toUpperCase() || a.type && "text/javascript" !== a.type || a.src || window.eval.call(window, a.innerHTML)
+                            })
+                        })
+                    })
+                }, x.fn[d ? b + "To" : "insert" + (c ? "Before" : "After")] = function(a) {
+                    return x(a)[b](this), this
+                }
+            }), W.Z.prototype = x.fn, W.uniq = A, W.deserializeValue = t, x.zepto = W, x
+        }();
+        window.Zepto = Zepto, void 0 === window.$ && (window.$ = Zepto),
+            function(a) {
+                function b(a) {
+                    return a._zid || (a._zid = m++)
+                }
+
+                function c(a, c, f, g) {
+                    if (c = d(c), c.ns) var h = e(c.ns);
+                    return (q[b(a)] || []).filter(function(a) {
+                        return !(!a || c.e && a.e != c.e || c.ns && !h.test(a.ns) || f && b(a.fn) !== b(f) || g && a.sel != g)
+                    })
+                }
+
+                function d(a) {
+                    var b = ("" + a).split(".");
+                    return {
+                        e: b[0],
+                        ns: b.slice(1).sort().join(" ")
+                    }
+                }
+
+                function e(a) {
+                    return new RegExp("(?:^| )" + a.replace(" ", " .* ?") + "(?: |$)")
+                }
+
+                function f(a, b) {
+                    return a.del && !s && a.e in t || !!b
+                }
+
+                function g(a) {
+                    return u[a] || s && t[a] || a
+                }
+
+                function h(c, e, h, i, k, m, n) {
+                    var o = b(c),
+                        p = q[o] || (q[o] = []);
+                    e.split(/\s/).forEach(function(b) {
+                        if ("ready" == b) return a(document).ready(h);
+                        var e = d(b);
+                        e.fn = h, e.sel = k, e.e in u && (h = function(b) {
+                            var c = b.relatedTarget;
+                            return !c || c !== this && !a.contains(this, c) ? e.fn.apply(this, arguments) : void 0
+                        }), e.del = m;
+                        var o = m || h;
+                        e.proxy = function(a) {
+                            if (a = j(a), !a.isImmediatePropagationStopped()) {
+                                a.data = i;
+                                var b = o.apply(c, a._args == l ? [a] : [a].concat(a._args));
+                                return b === !1 && (a.preventDefault(), a.stopPropagation()), b
+                            }
+                        }, e.i = p.length, p.push(e), "addEventListener" in c && c.addEventListener(g(e.e), e.proxy, f(e, n))
+                    })
+                }
+
+                function i(a, d, e, h, i) {
+                    var j = b(a);
+                    (d || "").split(/\s/).forEach(function(b) {
+                        c(a, b, e, h).forEach(function(b) {
+                            delete q[j][b.i], "removeEventListener" in a && a.removeEventListener(g(b.e), b.proxy, f(b, i))
+                        })
+                    })
+                }
+
+                function j(b, c) {
+                    return (c || !b.isDefaultPrevented) && (c || (c = b), a.each(y, function(a, d) {
+                        var e = c[a];
+                        b[a] = function() {
+                            return this[d] = v, e && e.apply(c, arguments)
+                        }, b[d] = w
+                    }), (c.defaultPrevented !== l ? c.defaultPrevented : "returnValue" in c ? c.returnValue === !1 : c.getPreventDefault && c.getPreventDefault()) && (b.isDefaultPrevented = v)), b
+                }
+
+                function k(a) {
+                    var b, c = {
+                        originalEvent: a
+                    };
+                    for (b in a) x.test(b) || a[b] === l || (c[b] = a[b]);
+                    return j(c, a)
+                }
+                var l, m = 1,
+                    n = Array.prototype.slice,
+                    o = a.isFunction,
+                    p = function(a) {
+                        return "string" == typeof a
+                    },
+                    q = {},
+                    r = {},
+                    s = "onfocusin" in window,
+                    t = {
+                        focus: "focusin",
+                        blur: "focusout"
+                    },
+                    u = {
+                        mouseenter: "mouseover",
+                        mouseleave: "mouseout"
+                    };
+                r.click = r.mousedown = r.mouseup = r.mousemove = "MouseEvents", a.event = {
+                    add: h,
+                    remove: i
+                }, a.proxy = function(c, d) {
+                    if (o(c)) {
+                        var e = function() {
+                            return c.apply(d, arguments)
+                        };
+                        return e._zid = b(c), e
+                    }
+                    if (p(d)) return a.proxy(c[d], c);
+                    throw new TypeError("expected function")
+                }, a.fn.bind = function(a, b, c) {
+                    return this.on(a, b, c)
+                }, a.fn.unbind = function(a, b) {
+                    return this.off(a, b)
+                }, a.fn.one = function(a, b, c, d) {
+                    return this.on(a, b, c, d, 1)
+                };
+                var v = function() {
+                        return !0
+                    },
+                    w = function() {
+                        return !1
+                    },
+                    x = /^([A-Z]|returnValue$|layer[XY]$)/,
+                    y = {
+                        preventDefault: "isDefaultPrevented",
+                        stopImmediatePropagation: "isImmediatePropagationStopped",
+                        stopPropagation: "isPropagationStopped"
+                    };
+                a.fn.delegate = function(a, b, c) {
+                    return this.on(b, a, c)
+                }, a.fn.undelegate = function(a, b, c) {
+                    return this.off(b, a, c)
+                }, a.fn.live = function(b, c) {
+                    return a(document.body).delegate(this.selector, b, c), this
+                }, a.fn.die = function(b, c) {
+                    return a(document.body).undelegate(this.selector, b, c), this
+                }, a.fn.on = function(b, c, d, e, f) {
+                    var g, j, m = this;
+                    return b && !p(b) ? (a.each(b, function(a, b) {
+                        m.on(a, c, d, b, f)
+                    }), m) : (p(c) || o(e) || e === !1 || (e = d, d = c, c = l), (o(d) || d === !1) && (e = d, d = l), e === !1 && (e = w), m.each(function(l, m) {
+                        f && (g = function(a) {
+                            return i(m, a.type, e), e.apply(this, arguments)
+                        }), c && (j = function(b) {
+                            var d, f = a(b.target).closest(c, m).get(0);
+                            return f && f !== m ? (d = a.extend(k(b), {
+                                currentTarget: f,
+                                liveFired: m
+                            }), (g || e).apply(f, [d].concat(n.call(arguments, 1)))) : void 0
+                        }), h(m, b, e, d, c, j || g)
+                    }))
+                }, a.fn.off = function(b, c, d) {
+                    var e = this;
+                    return b && !p(b) ? (a.each(b, function(a, b) {
+                        e.off(a, c, b)
+                    }), e) : (p(c) || o(d) || d === !1 || (d = c, c = l), d === !1 && (d = w), e.each(function() {
+                        i(this, b, d, c)
+                    }))
+                }, a.fn.trigger = function(b, c) {
+                    return b = p(b) || a.isPlainObject(b) ? a.Event(b) : j(b), b._args = c, this.each(function() {
+                        "dispatchEvent" in this ? this.dispatchEvent(b) : a(this).triggerHandler(b, c)
+                    })
+                }, a.fn.triggerHandler = function(b, d) {
+                    var e, f;
+                    return this.each(function(g, h) {
+                        e = k(p(b) ? a.Event(b) : b), e._args = d, e.target = h, a.each(c(h, b.type || b), function(a, b) {
+                            return f = b.proxy(e), e.isImmediatePropagationStopped() ? !1 : void 0
+                        })
+                    }), f
+                }, "focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select keydown keypress keyup error".split(" ").forEach(function(b) {
+                    a.fn[b] = function(a) {
+                        return a ? this.bind(b, a) : this.trigger(b)
+                    }
+                }), ["focus", "blur"].forEach(function(b) {
+                    a.fn[b] = function(a) {
+                        return a ? this.bind(b, a) : this.each(function() {
+                            try {
+                                this[b]()
+                            } catch (a) {}
+                        }), this
+                    }
+                }), a.Event = function(a, b) {
+                    p(a) || (b = a, a = b.type);
+                    var c = document.createEvent(r[a] || "Events"),
+                        d = !0;
+                    if (b)
+                        for (var e in b) "bubbles" == e ? d = !!b[e] : c[e] = b[e];
+                    return c.initEvent(a, d, !0), j(c)
+                }
+            }(Zepto),
+            function(a) {
+                function b(b, c, d) {
+                    var e = a.Event(c);
+                    return a(b).trigger(e, d), !e.isDefaultPrevented()
+                }
+
+                function c(a, c, d, e) {
+                    return a.global ? b(c || s, d, e) : void 0
+                }
+
+                function d(b) {
+                    b.global && 0 === a.active++ && c(b, null, "ajaxStart")
+                }
+
+                function e(b) {
+                    b.global && !--a.active && c(b, null, "ajaxStop")
+                }
+
+                function f(a, b) {
+                    var d = b.context;
+                    return b.beforeSend.call(d, a, b) === !1 || c(b, d, "ajaxBeforeSend", [a, b]) === !1 ? !1 : void c(b, d, "ajaxSend", [a, b])
+                }
+
+                function g(a, b, d, e) {
+                    var f = d.context,
+                        g = "success";
+                    d.success.call(f, a, g, b), e && e.resolveWith(f, [a, g, b]), c(d, f, "ajaxSuccess", [b, d, a]), i(g, b, d)
+                }
+
+                function h(a, b, d, e, f) {
+                    var g = e.context;
+                    e.error.call(g, d, b, a), f && f.rejectWith(g, [d, b, a]), c(e, g, "ajaxError", [d, e, a || b]), i(b, d, e)
+                }
+
+                function i(a, b, d) {
+                    var f = d.context;
+                    d.complete.call(f, b, a), c(d, f, "ajaxComplete", [b, d]), e(d)
+                }
+
+                function j() {}
+
+                function k(a) {
+                    return a && (a = a.split(";", 2)[0]), a && (a == x ? "html" : a == w ? "json" : u.test(a) ? "script" : v.test(a) && "xml") || "text"
+                }
+
+                function l(a, b) {
+                    return "" == b ? a : (a + "&" + b).replace(/[&?]{1,2}/, "?")
+                }
+
+                function m(b) {
+                    b.processData && b.data && "string" != a.type(b.data) && (b.data = a.param(b.data, b.traditional)), !b.data || b.type && "GET" != b.type.toUpperCase() || (b.url = l(b.url, b.data), b.data = void 0)
+                }
+
+                function n(b, c, d, e) {
+                    return a.isFunction(c) && (e = d, d = c, c = void 0), a.isFunction(d) || (e = d, d = void 0), {
+                        url: b,
+                        data: c,
+                        success: d,
+                        dataType: e
+                    }
+                }
+
+                function o(b, c, d, e) {
+                    var f, g = a.isArray(c),
+                        h = a.isPlainObject(c);
+                    a.each(c, function(c, i) {
+                        f = a.type(i), e && (c = d ? e : e + "[" + (h || "object" == f || "array" == f ? c : "") + "]"), !e && g ? b.add(i.name, i.value) : "array" == f || !d && "object" == f ? o(b, i, d, c) : b.add(c, i)
+                    })
+                }
+                var p, q, r = 0,
+                    s = window.document,
+                    t = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
+                    u = /^(?:text|application)\/javascript/i,
+                    v = /^(?:text|application)\/xml/i,
+                    w = "application/json",
+                    x = "text/html",
+                    y = /^\s*$/;
+                a.active = 0, a.ajaxJSONP = function(b, c) {
+                    if (!("type" in b)) return a.ajax(b);
+                    var d, e, i = b.jsonpCallback,
+                        j = (a.isFunction(i) ? i() : i) || "jsonp" + ++r,
+                        k = s.createElement("script"),
+                        l = window[j],
+                        m = function(b) {
+                            a(k).triggerHandler("error", b || "abort")
+                        },
+                        n = {
+                            abort: m
+                        };
+                    return c && c.promise(n), a(k).on("load error", function(f, i) {
+                        clearTimeout(e), a(k).off().remove(), "error" != f.type && d ? g(d[0], n, b, c) : h(null, i || "error", n, b, c), window[j] = l, d && a.isFunction(l) && l(d[0]), l = d = void 0
+                    }), f(n, b) === !1 ? (m("abort"), n) : (window[j] = function() {
+                        d = arguments
+                    }, k.src = b.url.replace(/\?(.+)=\?/, "?$1=" + j), s.head.appendChild(k), b.timeout > 0 && (e = setTimeout(function() {
+                        m("timeout")
+                    }, b.timeout)), n)
+                }, a.ajaxSettings = {
+                    type: "GET",
+                    beforeSend: j,
+                    success: j,
+                    error: j,
+                    complete: j,
+                    context: null,
+                    global: !0,
+                    xhr: function() {
+                        return new window.XMLHttpRequest
+                    },
+                    accepts: {
+                        script: "text/javascript, application/javascript, application/x-javascript",
+                        json: w,
+                        xml: "application/xml, text/xml",
+                        html: x,
+                        text: "text/plain"
+                    },
+                    crossDomain: !1,
+                    timeout: 0,
+                    processData: !0,
+                    cache: !0
+                }, a.ajax = function(b) {
+                    var c = a.extend({}, b || {}),
+                        e = a.Deferred && a.Deferred();
+                    for (p in a.ajaxSettings) void 0 === c[p] && (c[p] = a.ajaxSettings[p]);
+                    d(c), c.crossDomain || (c.crossDomain = /^([\w-]+:)?\/\/([^\/]+)/.test(c.url) && RegExp.$2 != window.location.host), c.url || (c.url = window.location.toString()), m(c), c.cache === !1 && (c.url = l(c.url, "_=" + Date.now()));
+                    var i = c.dataType,
+                        n = /\?.+=\?/.test(c.url);
+                    if ("jsonp" == i || n) return n || (c.url = l(c.url, c.jsonp ? c.jsonp + "=?" : c.jsonp === !1 ? "" : "callback=?")), a.ajaxJSONP(c, e);
+                    var o, r = c.accepts[i],
+                        s = {},
+                        t = function(a, b) {
+                            s[a.toLowerCase()] = [a, b]
+                        },
+                        u = /^([\w-]+:)\/\//.test(c.url) ? RegExp.$1 : window.location.protocol,
+                        v = c.xhr(),
+                        w = v.setRequestHeader;
+                    if (e && e.promise(v), c.crossDomain || t("X-Requested-With", "XMLHttpRequest"), t("Accept", r || "*/*"), (r = c.mimeType || r) && (r.indexOf(",") > -1 && (r = r.split(",", 2)[0]), v.overrideMimeType && v.overrideMimeType(r)), (c.contentType || c.contentType !== !1 && c.data && "GET" != c.type.toUpperCase()) && t("Content-Type", c.contentType || "application/x-www-form-urlencoded"), c.headers)
+                        for (q in c.headers) t(q, c.headers[q]);
+                    if (v.setRequestHeader = t, v.onreadystatechange = function() {
+                            if (4 == v.readyState) {
+                                v.onreadystatechange = j, clearTimeout(o);
+                                var b, d = !1;
+                                if (v.status >= 200 && v.status < 300 || 304 == v.status || 0 == v.status && "file:" == u) {
+                                    i = i || k(c.mimeType || v.getResponseHeader("content-type")), b = v.responseText;
+                                    try {
+                                        "script" == i ? (1, eval)(b) : "xml" == i ? b = v.responseXML : "json" == i && (b = y.test(b) ? null : a.parseJSON(b))
+                                    } catch (f) {
+                                        d = f
+                                    }
+                                    d ? h(d, "parsererror", v, c, e) : g(b, v, c, e)
+                                } else h(v.statusText || null, v.status ? "error" : "abort", v, c, e)
+                            }
+                        }, f(v, c) === !1) return v.abort(), h(null, "abort", v, c, e), v;
+                    if (c.xhrFields)
+                        for (q in c.xhrFields) v[q] = c.xhrFields[q];
+                    var x = "async" in c ? c.async : !0;
+                    v.open(c.type, c.url, x, c.username, c.password);
+                    for (q in s) w.apply(v, s[q]);
+                    return c.timeout > 0 && (o = setTimeout(function() {
+                        v.onreadystatechange = j, v.abort(), h(null, "timeout", v, c, e)
+                    }, c.timeout)), v.send(c.data ? c.data : null), v
+                }, a.get = function() {
+                    return a.ajax(n.apply(null, arguments))
+                }, a.post = function() {
+                    var b = n.apply(null, arguments);
+                    return b.type = "POST", a.ajax(b)
+                }, a.getJSON = function() {
+                    var b = n.apply(null, arguments);
+                    return b.dataType = "json", a.ajax(b)
+                }, a.fn.load = function(b, c, d) {
+                    if (!this.length) return this;
+                    var e, f = this,
+                        g = b.split(/\s/),
+                        h = n(b, c, d),
+                        i = h.success;
+                    return g.length > 1 && (h.url = g[0], e = g[1]), h.success = function(b) {
+                        f.html(e ? a("<div>").html(b.replace(t, "")).find(e) : b), i && i.apply(f, arguments)
+                    }, a.ajax(h), this
+                };
+                var z = encodeURIComponent;
+                a.param = function(a, b) {
+                    var c = [];
+                    return c.add = function(a, b) {
+                        this.push(z(a) + "=" + z(b))
+                    }, o(c, a, b), c.join("&").replace(/%20/g, "+")
+                }
+            }(Zepto),
+            function(a) {
+                a.fn.serializeArray = function() {
+                    var b, c = [];
+                    return a([].slice.call(this.get(0).elements)).each(function() {
+                        b = a(this);
+                        var d = b.attr("type");
+                        "fieldset" != this.nodeName.toLowerCase() && !this.disabled && "submit" != d && "reset" != d && "button" != d && ("radio" != d && "checkbox" != d || this.checked) && c.push({
+                            name: b.attr("name"),
+                            value: b.val()
+                        })
+                    }), c
+                }, a.fn.serialize = function() {
+                    var a = [];
+                    return this.serializeArray().forEach(function(b) {
+                        a.push(encodeURIComponent(b.name) + "=" + encodeURIComponent(b.value))
+                    }), a.join("&")
+                }, a.fn.submit = function(b) {
+                    if (b) this.bind("submit", b);
+                    else if (this.length) {
+                        var c = a.Event("submit");
+                        this.eq(0).trigger(c), c.isDefaultPrevented() || this.get(0).submit()
+                    }
+                    return this
+                }
+            }(Zepto),
+            function(a) {
+                "__proto__" in {} || a.extend(a.zepto, {
+                    Z: function(b, c) {
+                        return b = b || [], a.extend(b, a.fn), b.selector = c || "", b.__Z = !0, b
+                    },
+                    isZ: function(b) {
+                        return "array" === a.type(b) && "__Z" in b
+                    }
+                });
+                try {
+                    getComputedStyle(void 0)
+                } catch (b) {
+                    var c = getComputedStyle;
+                    window.getComputedStyle = function(a) {
+                        try {
+                            return c(a)
+                        } catch (b) {
+                            return null
+                        }
+                    }
+                }
+            }(Zepto),
+            function(a) {
+                function b(a) {
+                    var b = this.os = {},
+                        c = this.browser = {},
+                        d = a.match(/Web[kK]it[\/]{0,1}([\d.]+)/),
+                        e = a.match(/(Android);?[\s\/]+([\d.]+)?/),
+                        f = a.match(/(iPad).*OS\s([\d_]+)/),
+                        g = a.match(/(iPod)(.*OS\s([\d_]+))?/),
+                        h = !f && a.match(/(iPhone\sOS)\s([\d_]+)/),
+                        i = a.match(/(webOS|hpwOS)[\s\/]([\d.]+)/),
+                        j = i && a.match(/TouchPad/),
+                        k = a.match(/Kindle\/([\d.]+)/),
+                        l = a.match(/Silk\/([\d._]+)/),
+                        m = a.match(/(BlackBerry).*Version\/([\d.]+)/),
+                        n = a.match(/(BB10).*Version\/([\d.]+)/),
+                        o = a.match(/(RIM\sTablet\sOS)\s([\d.]+)/),
+                        p = a.match(/PlayBook/),
+                        q = a.match(/Chrome\/([\d.]+)/) || a.match(/CriOS\/([\d.]+)/),
+                        r = a.match(/Firefox\/([\d.]+)/),
+                        s = a.match(/MSIE ([\d.]+)/),
+                        t = d && a.match(/Mobile\//) && !q,
+                        u = a.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/) && !q;
+                    (c.webkit = !!d) && (c.version = d[1]), e && (b.android = !0, b.version = e[2]), h && !g && (b.ios = b.iphone = !0, b.version = h[2].replace(/_/g, ".")), f && (b.ios = b.ipad = !0, b.version = f[2].replace(/_/g, ".")), g && (b.ios = b.ipod = !0, b.version = g[3] ? g[3].replace(/_/g, ".") : null), i && (b.webos = !0, b.version = i[2]), j && (b.touchpad = !0), m && (b.blackberry = !0, b.version = m[2]), n && (b.bb10 = !0, b.version = n[2]), o && (b.rimtabletos = !0, b.version = o[2]), p && (c.playbook = !0), k && (b.kindle = !0, b.version = k[1]), l && (c.silk = !0, c.version = l[1]), !l && b.android && a.match(/Kindle Fire/) && (c.silk = !0), q && (c.chrome = !0, c.version = q[1]), r && (c.firefox = !0, c.version = r[1]), s && (c.ie = !0, c.version = s[1]), t && (a.match(/Safari/) || b.ios) && (c.safari = !0), u && (c.webview = !0), s && (c.ie = !0, c.version = s[1]), b.tablet = !!(f || p || e && !a.match(/Mobile/) || r && a.match(/Tablet/) || s && !a.match(/Phone/) && a.match(/Touch/)), b.phone = !(b.tablet || b.ipod || !(e || h || i || m || n || q && a.match(/Android/) || q && a.match(/CriOS\/([\d.]+)/) || r && a.match(/Mobile/) || s && a.match(/Touch/)))
+                }
+                b.call(a, navigator.userAgent), a.__detect = b
+            }(Zepto),
+            function(a) {
+                function b(a, b, c, d) {
+                    return Math.abs(a - b) >= Math.abs(c - d) ? a - b > 0 ? "Left" : "Right" : c - d > 0 ? "Up" : "Down"
+                }
+
+                function c() {
+                    k = null, m.last && (m.el.trigger("longTap"), m = {})
+                }
+
+                function d() {
+                    k && clearTimeout(k), k = null
+                }
+
+                function e() {
+                    h && clearTimeout(h), i && clearTimeout(i), j && clearTimeout(j), k && clearTimeout(k), h = i = j = k = null, m = {}
+                }
+
+                function f(a) {
+                    return ("touch" == a.pointerType || a.pointerType == a.MSPOINTER_TYPE_TOUCH) && a.isPrimary
+                }
+
+                function g(a, b) {
+                    return a.type == "pointer" + b || a.type.toLowerCase() == "mspointer" + b
+                }
+                var h, i, j, k, l, m = {},
+                    n = 750;
+                a(document).ready(function() {
+                    var o, p, q, r, s = 0,
+                        t = 0;
+                    "MSGesture" in window && (l = new MSGesture, l.target = document.body), a(document).bind("MSGestureEnd", function(a) {
+                        var b = a.velocityX > 1 ? "Right" : a.velocityX < -1 ? "Left" : a.velocityY > 1 ? "Down" : a.velocityY < -1 ? "Up" : null;
+                        b && (m.el.trigger("swipe"), m.el.trigger("swipe" + b))
+                    }).on("touchstart MSPointerDown pointerdown", function(b) {
+                        (!(r = g(b, "down")) || f(b)) && (q = r ? b : b.touches[0], b.touches && 1 === b.touches.length && m.x2 && (m.x2 = void 0, m.y2 = void 0), o = Date.now(), p = o - (m.last || o), m.el = a("tagName" in q.target ? q.target : q.target.parentNode), h && clearTimeout(h), m.x1 = q.pageX, m.y1 = q.pageY, p > 0 && 250 >= p && (m.isDoubleTap = !0), m.last = o, k = setTimeout(c, n), l && r && l.addPointer(b.pointerId))
+                    }).on("touchmove MSPointerMove pointermove", function(b) {
+                        (!(r = g(b, "move")) || f(b)) && (q = r ? b : b.touches[0], d(), m.x2 = q.pageX, m.y2 = q.pageY, s += Math.abs(m.x1 - m.x2), t += Math.abs(m.y1 - m.y2), a.os.android && (Math.abs(m.x1 - m.x2) > 10 || Math.abs(m.y1 - m.y2) > 10) && (s = t = 0))
+                    }).on("touchend MSPointerUp pointerup", function(c) {
+                        (!(r = g(c, "up")) || f(c)) && (d(), m.x2 && Math.abs(m.x1 - m.x2) > 30 || m.y2 && Math.abs(m.y1 - m.y2) > 30 ? j = setTimeout(function() {
+                            m.el.trigger("swipe"), m.el.trigger("swipe" + b(m.x1, m.x2, m.y1, m.y2)), m = {}
+                        }, 0) : "last" in m && (30 > s && 30 > t ? i = setTimeout(function() {
+                            var b = a.Event("tap");
+                            b.cancelTouch = e, m.el.trigger(b), m.isDoubleTap ? (m.el && m.el.trigger("doubleTap"), m = {}) : h = setTimeout(function() {
+                                h = null, m.el && m.el.trigger("singleTap"), m = {}
+                            }, 250)
+                        }, 0) : m = {}), s = t = 0)
+                    }).on("touchcancel MSPointerCancel pointercancel", e), a(window).on("scroll", e)
+                }), ["swipe", "swipeLeft", "swipeRight", "swipeUp", "swipeDown", "doubleTap", "tap", "singleTap", "longTap"].forEach(function(b) {
+                    a.fn[b] = function(a) {
+                        return this.on(b, a)
+                    }
+                })
+            }(Zepto),
+            function(a) {
+                function b(a, b) {
+                    var c = document.createElement("iframe");
+                    c.style.display = "none", c.src = a;
+                    var d = function() {
+                        try {
+                            c.parentNode.removeChild(c)
+                        } catch (a) {}
+                        b && b()
+                    };
+                    c.onload = d, document.documentElement.appendChild(c)
+                }
+
+                function c() {
+                    this.callbackDict = {}, this.notificationIdCount = 0, this.notificationDict = {};
+                    var c = this;
+                    a.document.addEventListener("DOMContentLoaded", function() {
+                        b("qzonebridge://NotificationReady", c.trigger("qzonebridgeReady", {}))
+                    }, !1)
+                }
+                c.prototype = {
+                    constructor: c,
+                    postNotification: function(a, c) {
+                        this.notificationIdCount++, this.notificationDict[this.notificationIdCount] = {
+                            name: a,
+                            userInfo: c
+                        }, b("qzonebridge://PostNotificationWithId-" + this.notificationIdCount)
+                    },
+                    popNotificationObject: function(a) {
+                        var b = JSON.stringify(this.notificationDict[a]);
+                        return delete this.notificationDict[a], b
+                    },
+                    trigger: function(a, b) {
+                        if (this.callbackDict[a])
+                            for (var c = this.callbackDict[a], d = 0, e = c.length; e > d; d++) c[d](b)
+                    },
+                    bind: function(a, b) {
+                        this.callbackDict[a] || (this.callbackDict[a] = []), this.callbackDict[a].push(b)
+                    },
+                    unbind: function(a, b) {
+                        if (1 == arguments.length) delete this.callbackDict[a];
+                        else if (arguments.length > 1) {
+                            if (this.callbackDict[a])
+                                for (var c = this.callbackDict[a], d = 0, e = c.length; e > d; d++)
+                                    if (c[d] == b) {
+                                        c.splice(d, 1);
+                                        break
+                                    }
+                            0 === this.callbackDict[a].length && delete this.callbackDict[a]
+                        }
+                    }
+                }, a.qzonebridge = c
+            }(window),
+            function(a, b, c) {
+                "user strict";
+
+                function d(b) {
+                    var c, d = a(b.target),
+                        e = parseInt(d.attr("data-errorcount") || 1);
+                    d.attr("data-errorcount", e + 1), c = setTimeout(function() {
+                        d.attr("src", d.attr("src"))
+                    }, e * e * 1e3), B.push(c)
+                }
+
+                function e(a) {
+                    return (a + "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\x60/g, "&#96;").replace(/\x27/g, "&#39;").replace(/\x22/g, "&quot;")
+                }
+
+                function f(a) {
+                    var b, c, d = 0;
+                    if (0 === a.length) return d;
+                    for (c = 0; c < a.length; c++) b = a.charCodeAt(c), d = (d << 5) - d + b, d &= d;
+                    return d
+                }
+
+                function g(a, b) {
+                    b = b || document.location.toString();
+                    var c = new RegExp("(^|&|\\\\?)" + a + "=([^&]*)(&|$|#)"),
+                        d = null;
+                    return (d = b.match(c)) ? d[2] : ""
+                }
+
+                function h(a, b) {
+                    var c = document.createElement("script");
+                    c.onload = b, c.src = a, document.getElementsByTagName("head")[0].appendChild(c)
+                }
+
+                function i(a) {
+                    o.trigger("hasInstall", {
+                        callback: function(b) {
+                            app.install = b ? z.INSTALLED : z.UNINSTALL, 0 === b && (app.install = z.UNKNOWN), a(app.install)
+                        }
+                    })
+                }
+
+                function j() {
+                    if (a.os.android && a.browser.micromessenger) {
+                        var b = function() {
+                            return window.WeixinJSBridge && WeixinJSBridge.invoke ? (A("wxDownLoad"), k(), !0) : void 0
+                        };
+                        b() || o.on("WeixinJSBridgeReady", b)
+                    }
+                }
+
+                function k() {
+                    var a = app.downloadUrl,
+                        b = app.downloadMD5,
+                        c = localStorage.getItem("download_id");
+                    WeixinJSBridge.invoke("queryDownloadTask", {
+                        download_id: c
+                    }, function(d) {
+                        var e = d && d.state ? d.state : "default";
+                        return "download_succ" === e ? void WeixinJSBridge.invoke("installDownloadTask", {
+                            download_id: c
+                        }, function() {
+                            clearInterval(E), E = setInterval(function() {
+                                i(function(a) {
+                                    a && (o.trigger("installStateChange"), clearInterval(E))
+                                })
+                            }, 2e3), app.install !== z.INSTALLED && (app.install = z.INSTALLED, o.trigger("installStateChange"))
+                        }) : void("downloading" === e || ("default" === e && app.install !== z.DOWNLOAD ? WeixinJSBridge.invoke("addDownloadTask", {
+                            task_name: "微视",
+                            task_url: a,
+                            file_md5: b
+                        }, function(b) {
+                            var c = b.err_msg;
+                            if (c.indexOf("function_not_exist") > -1) return void(window.location = a);
+                            if (c.indexOf("add_download_task:ok") > -1) {
+                                var d = b.download_id;
+                                try {
+                                    localStorage.setItem("download_id", d)
+                                } catch (e) {}
+                                E = setInterval(function() {
+                                    k()
+                                }, 2e3), app.install = z.DOWNLOAD, o.trigger("installStateChange")
+                            } else window.location = a
+                        }) : ("download_fail" === e || "default" === e && app.install === z.DOWNLOAD) && (window.location = a)))
+                    })
+                }
+
+                function l(b) {
+                    if (window.WeixinJSBridge && WeixinJSBridge.invoke) {
+                        var c = b || {};
+                        return c.link = b.link || location.href, WeixinJSBridge.on("menu:share:timeline", function() {
+                            c.title = b.desc || b.title, c.link = c.link + (~c.link.indexOf("?") ? "&pgv_ref=weishi.share.wxsns" : "?pgv_ref=weishi.share.wxsns"), WeixinJSBridge.invoke("shareTimeline", c), a.ajax({
+                                url: "t/updateShareCnt.php",
+                                type: "post",
+                                data: {
+                                    platform: 4,
+                                    datatype: 9,
+                                    data: c.uid
+                                }
+                            }), c.boss && A(c.boss + "_tl")
+                        }), WeixinJSBridge.on("menu:share:appmessage", function() {
+                            c.link = c.link + (~c.link.indexOf("?") ? "&pgv_ref=weishi.share.wxfnd" : "?pgv_ref=weishi.share.wxfnd"), WeixinJSBridge.invoke("sendAppMessage", c), a.ajax({
+                                url: "t/updateShareCnt.php",
+                                type: "post",
+                                data: {
+                                    platform: 3,
+                                    datatype: 9,
+                                    data: c.uid
+                                }
+                            }), c.boss && A(c.boss + "_msg")
+                        }), !0
+                    }
+                    return !1
+                }
+
+                function m(b) {
+                    a.browser.micromessenger && (l(b) || o.on("WeixinJSBridgeReady", function() {
+                        l(b)
+                    }))
+                }
+
+                function n() {
+                    setTimeout(function() {
+                        h("http://pingjs.qq.com/ping.js", function() {
+                            "function" == typeof pgvMain && (pvCurDomain = "weishi.qq.com", pgvMain())
+                        })
+                    }, 3e3)
+                }
+                var o = a(c),
+                    p = a(b),
+                    q = (b.applicationCache, b.localStorage, "http://mat1.gtimg.com/www/mb/js/weishi/image/head_default_90.png"),
+                    r = "weishiiosscheme://",
+                    s = "weishiandroidscheme://",
+                    t = "http://itunes.apple.com/cn/app/wei-shi-8miao-duan-shi-pin/id691828408?mt=8",
+                    u = "http://www.weishi.com/download/index.php?from=android",
+                    v = a.os.ios ? r : s,
+                    w = a.os.ios ? t : u,
+                    x = function() {
+                        var a = navigator.userAgent.match(/Weishi\/(\d+\.\d+)(\.(\d+))?(\.(\d+))?/i);
+                        return a = a ? [parseFloat(a[1]), parseFloat(a[3]) || 0, parseFloat(a[5]) || 0] : [0, 0, 0]
+                    }(),
+                    y = function() {
+                        return "createTouch" in document ? "tap" : "click"
+                    }(),
+                    z = {
+                        UNKNOWN: 0,
+                        INSTALLED: 1,
+                        UNINSTALL: 2,
+                        DOWNLOAD: 3,
+                        INSTALLING: 4
+                    };
+                a.os.ios && p.on("load", function() {
+                    setTimeout(function() {
+                        a("style").each(function(b, c) {
+                            a(c).html(a(c).html())
+                        })
+                    }, 0)
+                }), o.on("click", "a.preventlink, a.taplink", function(a) {
+                    a.preventDefault(), a.stopPropagation()
+                }), o.on(y, ".taplink", function(b) {
+                    var c = a(b.currentTarget),
+                        d = c.attr("data-href") || c.attr("href");
+                    a(b.target).closest(".notaplink").length || (o.trigger("video:remove", {
+                        video: app.cache.curVideo
+                    }), location.href = d)
+                }), a.os.android && function() {
+                    var a = 0;
+                    o.on("touchstart", function(b) {
+                        var c = +new Date;
+                        400 >= c - a && b.preventDefault(), a = c
+                    })
+                }();
+                var A = function() {
+                    var b = 5;
+                    (a.os.tablet || a.os.phone) && (b = 4), a.browser.micromessenger ? b = 1 : a.browser.iphoneqq ? b = 2 : a.browser.tencentmicroblogiphone ? b = 6 : a.browser.weishibrowse ? b = 7 : a.browser.sinaweibo && (b = 8);
+                    var c = 1;
+                    a.os.ios ? c = 2 : a.os.android && (c = 3);
+                    var d = location.href.match(/pgv_ref=([^&|#]+)/),
+                        e = d ? d[1] : "",
+                        f = 1181;
+                    return function(a, d) {
+                        // var g = new Image,
+                            // h = "",
+                            // i = "",
+                            // j = "0",
+                            // k = app.cache.network_type || "",
+                            // l = encodeURIComponent(location.href);
+                        // app.account && app.account.uid && (j = app.account.uid), d && (h = d.sBak2 || "", i = d.sText || ""), a = String(a), g.src = "http://btrace.qq.com/collect?sIp=&iQQ=" + j + "&sBiz=vsion&sOp=" + a + "&iSta=0&iTy=" + f + "&iFlow=" + k + "&iFrom=&iPubFrom=&sUrl=" + e + "&iUrlType=&iPos=&sText=" + i + "&iBak1=" + b + "&iBak2=" + c + "&sBak1=" + l + "&sBak2=" + h + "&sBrowser=" + window.navigator.userAgent + "&ukey=&r=" + +new Date
+                    }
+                }();
+                o.on(y, ".boss", function(b) {
+                    var c = a(b.currentTarget),
+                        d = c.attr("data-boss"),
+                        e = c.attr("data-index") || "",
+                        f = c.attr("data-text") || "";
+                    d && A(d, {
+                        iPos: e,
+                        sText: f
+                    })
+                });
+                var B = [];
+                o.on("checkerror", function(b) {
+                    var c = a(b.target);
+                    a("img", c).on("error", d)
+                }), o.on("uncheckerror", function(b) {
+                    var c = a(b.target);
+                    a("img", c).off("error")
+                });
+                var C = function(b, c) {
+                        if (+new Date % 10 === 1) {
+                            var d = new Image,
+                                e = {
+                                    type: 1,
+                                    name: b
+                                },
+                                f = "";
+                            c[0] = c[0] || 0, a.each(c, function(a, b) {
+                                return 0 === b ? (e = !1, !1) : void(0 !== a && (e[a] = b - c[0]))
+                            }), e && setTimeout(function() {
+                                f = "http://qos.report.qq.com/collect?" + a.param(e), d.src = f
+                            }, 2e3)
+                        }
+                    },
+                    D = function() {
+                        if ("function" == typeof arguments[0]) {
+                            var a = arguments[0];
+                            return void(window.WeishiJSBridge && window.WeishiJSBridge.invoke ? D.build.call(window.WeishiJSBridge, a) : o.on("WeishiJSBridgeReady", function() {
+                                D.build.call(window.WeishiJSBridge, a)
+                            }))
+                        }
+                        var b = Array.prototype.slice.call(arguments);
+                        D.wait ? D.wait.push(b) : setTimeout(function() {
+                            D.apply(this, b)
+                        }, 1e3)
+                    };
+                D.wait = [], D.build = function(b) {
+                        var c = D.wait;
+                        this.init(function() {}), D = this.invoke, app.WSBridge = this.invoke, a.each(c, function(a, b) {
+                            D.apply(window, b)
+                        }), b.call(this)
+                    }, D(function() {}),
+                    function() {
+                        var b, c = navigator.userAgent;
+                        (b = c.match(/MicroMessenger\/((\d+)\.(\d+))/i)) ? a.browser = {
+                            micromessenger: !0,
+                            version: parseFloat(b[1])
+                        }: (b = c.match(/MQQBrowser\/(\d+\.\d+)/i)) ? a.browser = {
+                            mqqbrowser: !0,
+                            version: parseFloat(b[1])
+                        } : (b = c.match(/MiuiBrowser\/(\d+\.\d+)/i)) ? a.browser = {
+                            miuibrowser: !0,
+                            version: parseFloat(b[1])
+                        } : (b = c.match(/UCBrowser\/(\d+\.\d+(\.\d+\.\d+)?)/) || c.match(/\sUC\s/)) ? a.browser = {
+                            ucbrowser: !0,
+                            version: parseFloat(b[1])
+                        } : (b = c.match(/TencentMicroBlogiPhone/)) ? a.browser = {
+                            tencentmicroblogiphone: !0
+                        } : (b = c.match(/iPhone.* QQ\/?([\d\.]*)/i)) ? a.browser = {
+                            iphoneqq: !0,
+                            version: parseFloat(b[1])
+                        } : window.appinfo && window.appinfo.isQzoneApp ? a.browser = {
+                            qzoneapp: !0
+                        } : (b = c.match(/__weibo__(\d+\.\d+.\d+)?/) || window.appinfo && window.appinfo.isSinaWeibo) ? a.browser = {
+                            sinaweibo: !0
+                        } : (b = c.match(/Weishi\/(\d?\.?\d?)/i)) && (a.browser = {
+                            weishibrowse: !0,
+                            version: parseFloat(b[1])
+                        })
+                    }(), o.on("hasInstall", function(b, c) {
+                        var d;
+                        if (a.browser.weishibrowse && c.callback(!0), a.browser.micromessenger) {
+                            var e = a.os.ios ? "com.tencent.microvision" : "com.tencent.weishi",
+                                f = function() {
+                                    return window.WeixinJSBridge && WeixinJSBridge.invoke ? (WeixinJSBridge.invoke("getInstallState", {
+                                        packageName: e,
+                                        packageUrl: r
+                                    }, function(a) {
+                                        d = ~a.err_msg.indexOf("get_install_state:yes") ? !0 : !1, c.callback(d)
+                                    }), app.install === z.UNKNOWN && (WeixinJSBridge.invoke("hideToolbar"), WeixinJSBridge.invoke("getNetworkType", {}, function(a) {
+                                        app.cache.network_type = a.err_msg.replace("network_type:", "")
+                                    })), !0) : void 0
+                                };
+                            f() || o.on("WeixinJSBridgeReady", f)
+                        } else a.browser.iphoneqq ? h("http://pub.idqqimg.com/qqmobile/qqapi.js", function() {
+                            a(function() {
+                                d = window.mqq && window.mqq.app.isAppInstalled(r.slice(0, -3)) || !1, c.callback(d)
+                            })
+                        }) : a.browser.tencentmicroblogiphone ? o.on("WebViewJavascriptBridgeReady", function(a) {
+                            a = a || window.event;
+                            var b = a.bridge;
+                            b.init(), b.callHandler && b.callHandler("getInstallState", {
+                                packageUrl: r,
+                                packageName: "com.tencent.microvision"
+                            }, function(a) {
+                                d = !!~a.err_msg.indexOf("get_install_state:yes") || !1, c.callback(d)
+                            })
+                        }) : a.browser.qzoneapp && a.os.ios && window.qzonebridge ? (window.qzonebridge = new window.qzonebridge, window.qzonebridge.postNotification("hideToolbar")) : a.browser.weishibrowse && D ? D("action.hideToolbar") : c.callback(0)
+                    });
+                var E, F = document.domain;
+               // F = F.indexOf("weishi.com") >= 0 ? "weishi.com" : "qq.com", document.domain = F;   //decamincow
+                var G = function() {
+                                         return;
+                                         //"http://" + ("weishi.com" === document.domain ? "wsi.weishi.com" : "wsm.qq.com") + "/"  //decamincow
+                    }(),
+                    H = function() {
+                        H.iframe = !0;
+                        var b = document.createElement("iframe"),
+                            c = document.body || document.documentElement;
+                        b.style.display = "none", b.src = G + "proxy.html", b.onload = function() {
+                            var c;
+                            for (H.xhr = b.contentWindow.xmlHttp; c = H.waitlist.shift();) a.ajax(c)
+                        }, c.appendChild(b)
+                    };
+                H.waitlist = [], o.on("ajaxBeforeSend", function(b, c, d) {
+                    if ("http://" !== d.url.slice(0, 7)) {
+                        var e = d.type.toLowerCase();
+                        if ("get" === e && "json" === d.dataType) d.dataType = "jsonp";
+                        else if (!H.xhr) return H.waitlist.push(d), H.iframe || H(), !1;
+                        var f = {
+                            v: "w"
+                        };
+                        return f = a.param(f), d.data = d.data ? d.data + "&" + f : f, d.url = G + "weishi/" + d.url, "jsonp" !== d.dataType && (d.xhr = H.xhr, d.crossDomain = !1), a.ajax(d), !1
+                    }
+                }), n(), a.os.android && a.ajax({
+                    url: "http://www.weishi.com/api/packdata.php",
+                    dataType: "jsonp",
+                    success: function(a) {
+                        0 === a.ret && a.data && (app.downloadUrl = a.data.url, app.downloadMD5 = a.data.md5)
+                    }
+                }), app = b.app = {
+                    defaultHeadLarge: q,
+                    scheme: v,
+                    weishiVersion: x,
+                    tapEvent: y,
+                    boss: A,
+                    speedEnd: C,
+                    encodeHtml: e,
+                    hashcode: f,
+                    WSBridge: D,
+                    cache: {},
+                    getUrlParam: g,
+                    loadScript: h,
+                    install: 0,
+                    downloadUrl: w,
+                    checkInstall: i,
+                    installState: z,
+                    wechatDownLoader: j,
+                    bindWxShare: m
+                }
+            }(Zepto, window, document),
+            function(a, b, c) {
+                function d() {
+                    var b = 250,
+                        c = 250;
+                    a("#vbox").width(b), a("#vbox").height(c), a(".vWrap").width(b), a(".vWrap").height(b), a(".vWrap .cover").width(b), a(".vWrap .cover").height(b), a(window).height() <= 420 && (a(".precentbox").height(80), a(".container").css({
+                        "padding-top": "5px"
+                    }));
+                  //  new WeiShiPlayer({ //decamincow
+                  //      vid: "1008_ee3987ed3d774def98a6c78ab42d1bea",
+                 //       msgid: "2001051109278638",
+                //        vBox: a("#vbox")[0],
+                  //      width: b || "100%",
+                  //      height: c || "100%",
+                  //      autoPlay: 0,
+                  //      bossPrefix: "game",
+                  //      vidType: 3,
+                  //      scene: 5,
+                  //      isinline: 1,
+                 //       initVideoCall: function(a) {
+                 //           window.videoDom = a
+                 //       }
+                 //   })
+                }
+
+                function e(b, c) {
+                    a("#endPage .moneybox span").html(b), a("#endPage .precentbox span").html(c + "%")
+                }
+
+                function f(b, c) {
+                    a("video")[0] && a("video")[0].pause(), a("#vbox video").remove(), a("#endPage").show(), a("#gameDiv").hide(), a("#startPage").hide(), b = parseInt(b) || 0, c = parseInt(c) || 0, e(b, c), i.bindWxShare({
+                        title: "百元哥来找你要钱啦",
+                        desc: "我给了百元哥" + b + "元，打败了" + c + "%的网友，不服来战",
+                        img_url: "http://mat1.gtimg.com/www/mb/webapp/weishi/image/game/avator2.png",
+                        link: "http://m.weishi.com/app/h5game/index.html",
+                        boss: "game_shareWX"
+                    }), 50 >= b ? g("marks_l_50") : 100 >= b ? g("marks_l_100") : 200 >= b ? g("marks_l_200") : 500 >= b ? g("marks_l_500") : b > 500 && g("marks_m_500")
+                }
+
+                function g(a) {
+                    i.boss("game_" + a)
+                }
+                var h = a(c),
+                    i = (a(b), b.app),
+                    j = '<div id="startPage">              <div class="container">                <div class="infobox">                  <!--<div class="avator">                      <img src="http://mat1.gtimg.com/www/mb/webapp/weishi/image/game/avator2.png">                  </div>-->                  <div class="info">百元哥火了你造吗？<br/>快来看看他的成名作吧！</div>                </div>                <!--<h1>百元哥</h1>-->                <!--<p>最后一次与<span>百元哥</span>亲密接触的机会！准备好硬币，丢他！不要怜惜他是一朵娇花！</p>-->                <div class="vContain" style="width:250px;height:250px;display:none;"><div class="vWrap notaplink" thumbs="1">                  <img class="cover" src="http://mat1.gtimg.com/www/mb/webapp/weishi/image/game/cover_05.png"/>                    <span class="btnPlay"> <em class="canPlay icon-play"></em>                  </span>                  <div id="downloadBar" class="mvDownload">                    <img src="http://mat1.gtimg.com/www/mb/webapp/weishi/image/apple-touch-icon-72x72.png" alt="" class="mvlogo">                    <h3>腾讯微视</h3>                    <p>记录生活,分享美好</p>                    <a href="http://www.weishi.com" class="downloadBtn boss " data-boss="game_coverDownBtn">下载</a>                  </div>                </div>                <div id="vbox"></div>                </div>                <a href="javascript:;" class="playBtn btn">我也要给百元哥钱</a>                                                               <!--<div class="atlas"><a class="downloadBtn unified_downloader j-btn-download boss downloader_download btn-iosclient" href="http://www.weishi.com" data-boss="game_downloadV"><div class="downloader_progress j-downloader_progress" style="background-color: #4780e5;"></div><div class="downloader_text">打开/下载微视客户端</div></a></div> -->                          </div>            </div>                                                                                                                                                           <div id="endPage" class="endPage">                                                                                                                                 <div class="container">                <div class="info">                                                                                                                                                 <div class="moneyinfo">                    <!--<div class="avator">                      <img src="http://mat1.gtimg.com/www/mb/webapp/weishi/image/game/avator.png">                    </div>-->                    <div class="moneybox">你给了百元哥<br/><span>100</span>元</div>                  </div>                  <div class="precentbox">超过<span>60%</span>的网友</div>                </div>                                                                                                                                                           <div class="btnBox"><a href="javascript:;" class="replayBtn btn">再玩一次</a><a href="javascript:;" class="sharewxBtn btn">炫耀一下</a></div>                      <div class="relatedNews _klass_real_">                                                                                         <a href="http://www.weishi.com" class="downloadBtn boss" data-boss="game_downloadimg">                                                                                                                 <div class="rn_imgArea" style="width:100%; min-height:80px">                                                                                                         <div class="rn_con"><img src="http://mat1.gtimg.com/www/mb/webapp/weishi/image/baiyuanhead.jpg" style="height:60px!important;" width="288">                          <div class="rn_des"><p><span class="rn_text">钱都给了，不看看表演就白瞎啦！</span></p></div>                                                                     </div>                                                                                                                                                           </div>                                                                                                                                                           </a>                                                                                                                                                               <a class="unified_downloader j-btn-download boss downloader_download btn-iosclient downloadBtn" data-boss="game_downloadBtn" href="http://www.weishi.com" >                                       <div class="downloader_progress j-downloader_progress" style="background-color: #4780e5;"></div>                                                                   <div class="downloader_text">打开/下载微视，查看更多百元哥神曲</div>                                                                                                </a>                                                                                                                                                             </div>                                                                                                                                                         </div>              <div class="shareBg">                                                                                                                                              <div class="arron"></div>                                                                                                                                        <p id="msg">请点击右上角<br>点击【分享到朋友圈】<br></p>                                                                                                       </div>                                                                                                                                                      </div>';
+                a(function() {
+                    h.trigger("init")
+                }), h.on("init", function() {
+                    a("body").append(j), d(), a.os.android ? a(".downloadBtn").attr("href", i.downloadUrl) : a.os.ios ? a(".downloadBtn").attr("href", i.scheme + "tag?name=100%E5%9D%97%E9%92%B1%E4%B8%8D%E7%BB%99%E6%88%91") : a(".downloadBtn").attr("href", "http://www.weishi.com"), a.os.ios && a(".downloadBtn").on("click", function() {
+                        var a = +new Date,
+                            b = window.navigator.standalone === !0 ? 1e3 : 200;
+                        setTimeout(function() {
+                            +new Date - a < 2e3 && (location.href = i.downloadUrl)
+                        }, b)
+                    }), a.os.android && a.browser.micromessenger && a(".downloadBtn").on("click", function(a) {
+                        i.install === i.installState.UNINSTALL && i.downloadMD5 ? (i.wechatDownLoader(), a.preventDefault()) : i.install !== i.installState.INSTALLED && a.preventDefault()
+                    }), i.checkInstall(function() {
+                        h.trigger("installStateChange")
+                    }), a(".sharewxBtn").on(i.tapEvent, function() {
+                        a(".shareBg").show(), g("shareClick")
+                    }), a(".shareBg").on(i.tapEvent, function() {
+                        a(".shareBg").hide()
+                    }), a(".playBtn").on(i.tapEvent, function() {
+                        a("video")[0] && a("video")[0].pause(), a("#gameDiv").show(), a("#startPage").hide(), g("startClick")
+                    }), a(".replayBtn").on(i.tapEvent, function() {
+                        a("#gameDiv").show(), a("#endPage").hide(), g("replayClick")
+                    }), i.bindWxShare({
+                        title: "百元哥来找你要钱啦",
+                        desc: "百元哥来找你了,快来看看！",
+                        img_url: "http://mat1.gtimg.com/www/mb/webapp/weishi/image/game/avator2.png",
+                        link: "http://m.weishi.com/app/h5game/index.html",
+                        boss: "game_shareWX"
+                    }), a(".btnPlay").on(i.tapEvent, function() {
+                        a(".vWrap").hide(), a("#vbox").show(), a("video")[0] && a("video")[0].play()
+                    })
+                }), h.on("installStateChange", function() {
+                    switch (i.install) {
+                        case i.installState.INSTALLED:
+                            a(".downloadBtn").attr("href", i.scheme + "tag?name=100%E5%9D%97%E9%92%B1%E4%B8%8D%E7%BB%99%E6%88%91"), a(".downloader_text").html("打开微视，查看更多百元哥神曲"), a(".mvDownload .downloadBtn").html("打开");
+                            break;
+                        case i.installState.UNINSTALL:
+                            a(".downloadBtn").attr("href", i.downloadUrl), a(".downloader_text").html("下载微视，查看更多百元哥神曲");
+                            break;
+                        case i.installState.UNKNOWN:
+                            break;
+                        case i.installState.DOWNLOAD:
+                            break;
+                        case i.installState.INSTALLING:
+                    }
+                }), window.showEndPage = f, window.boss = g
+            }(Zepto, window, document);
+    </script>
 </head>
 
 <body>
-<script src="js/gads.js"></script>
-<div id="gads" align="center" style="z-index=9999;position:fixed;display:block;bottom:0;left:0;padding:0;margin:0;background-color:black;">
-    <script>show_ad();</script>
-</div>
-<div class="grid">
-    <div id="index" class="page show">
-        <h1>最強大腦<br>Memory Test</h1>
-        <div id="help">憑記憶力從小到大，依次點擊數字<br>Click the numbers by ascending with memory</div>
-        <div class="btns">
-            <button id="play-btn" data-type="color" class="btn play-btn">PLAY</button>
-        </div>
-    </div>
-    <div id="room" class="page hide">
-        <header>
-            <span id="lv" class="score">SCORE:0</span>
-        </header>
-        <div id="box" class="lv1">
-            <div style="display:inline-block;height:282px;width:100%;padding:0;position:absolute;top:50%;left:0;margin-top:-141px;">
-                <div style="position:relative;width:282px;margin:0 auto;">
-                    <canvas id="gameCanvas" width="282" height="282" style="background: #a5bfe4;">
-                        当前浏览器不支持webgl
-                    </canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="page hide" id="dialog">
-        <div class="inner">
-            <div class="content share">
-                <p id="game-result">
-                    經鑒定，您是：菜鸟
-                </p>
-                <h3></h3>
-                <div class="btn-wrap">
-                    <a id="btn-share" class="btn btn-ioxapp" href="#">Rate</a>
-                    <button id="btn-restart" class="btn btn-restart">
-                        Play Again
-                    </button>
-                    <a href="itms-apps://itunes.apple.com/artist/appmosys/id898185915" class="btn btn-ioxapp" target="_blank">More Games</a>
-                </div>
-                <br>
-            </div>
-        </div>
-    </div>
-</div>
-<!--
-<div class="adcontainer" style="z-index=9999">
-    <div id="responsive-adsense">
-        <script type="text/javascript">
-            // Replace google_ad_client number with ith your AdSense Publisher ID
-            google_ad_client = "ca-pub-1667278402120283"; // by michael
-            // Detect and calculate the width of the "<div>" where AdSense ads will be rendered
-            var containerWidth = document.getElementById( "responsive-adsense" ).offsetWidth;
-            alert(containerWidth);
-            // If ad container is 728px...
-            if ( containerWidth >= 728 ) {
-                //...Then, display Adsense ad of size 728x90px
-                // Remember to replace the AdSense Ad Slot ID as well for all the different size ad units
-                google_ad_slot = "8057850217"; // by michael
-                google_ad_width = 728;
-                google_ad_height = 90;
-            }
-            // If ad container is 468px, then display Adsense ad of size 468x60px
-            else if ( containerWidth >= 468 ) {
-                google_ad_slot = "6720717819"; // by michael
-                google_ad_width = 468;
-                google_ad_height = 60;
-            }
-            // If ad container is 320px, then display Adsense ad of size 320x50px
-            else if ( containerWidth >= 320 ) {
-                // It is even possible to set a different google_ad_client ID only for your mobile traffic
-                google_ad_client = "ca-pub-1667278402120283"; // by michael
-                google_ad_slot = "4046453012"; // by michael
-                google_ad_width = 320;
-                google_ad_height = 50;
-            }
-            // If ad container is 234px, then display Adsense ad of size 234x60px
-            else if ( containerWidth >= 234 ) {
-                google_ad_slot = "5243984618"; // by michael
-                google_ad_width = 234;
-                google_ad_height = 60;
-            }
-        </script>
-        <script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript"></script>
-    </div>
-</div>
--->
+    <div style="position:relative;" id="gameDiv"></div>
+    <script>
+        var document_class = "Main";
+    </script>
+    <!--这部分内容在编译时会被替换，要修改文档类，请到工程目录下的egretProperties.json内编辑。-->
+    <script src="launcher/egret_require.js"></script>
+    <script src="launcher/egret_loader.js"></script>
+    <script src="launcher/game-min.js"></script>
+    <script>
+        egret_h5.startGame();
+    </script>
 </body>
+
 </html>
