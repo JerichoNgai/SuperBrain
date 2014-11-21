@@ -5655,7 +5655,7 @@ __extends = this.__extends || function(b, e) {
             var c = a.name;
             if (!this.fileDic[c] && b) try {
                 this.fileDic[c] = JSON.parse(b);
-                alert(b);
+                // alert(b);
             } catch (e) {
                 egret.Logger.warning("JSON\u6587\u4ef6\u683c\u5f0f\u4e0d\u6b63\u786e: " + a.url + "\ndata:" + b)
             }
